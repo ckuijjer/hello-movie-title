@@ -5,14 +5,17 @@ const titleCase = (input, exclusion) => {
   // fix: exclusion might be undefined
   const exclusions = exclusion.split(' ');
 
-  return input.split(' ').map((word) => {
-    // mistake: should always capitalize 1st word
-    if (exclusions.includes(word)) {
-      return word;
-    }
+  return input
+    .split(' ')
+    .map((word) => {
+      // mistake: should always capitalize 1st word
+      if (exclusions.includes(word)) {
+        return word;
+      }
 
-    return capitalize(word);
-  });
+      return capitalize(word);
+    })
+    .join(' ');
 };
 
 module.exports = titleCase;
